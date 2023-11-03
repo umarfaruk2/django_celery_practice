@@ -32,7 +32,10 @@ def index(request):
 def check_result(request, task_id):
     # retrieve the task result using the task_id
     result = AsyncResult(task_id)
-
+    print('Ready: ', result.ready()),
+    print('Successful: ', result.successful()),
+    print('Failed: ', result.failed()),
+    print('Get result', result.get())
     return render(request, 'app/result.html', {'result': result})
     
 def about(request):
